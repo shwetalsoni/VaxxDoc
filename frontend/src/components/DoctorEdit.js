@@ -39,7 +39,7 @@ class DoctorEdit extends React.Component{
                             <span className="input-group-text" id="basic-addon1">Phone Number</span>
                             <span className="detail form-control">787573770</span>
                         </div>
-                        <span>
+                        <span className="check-span">
                             <div className="form-check check1">
                                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
                                 <label className="form-check-label" for="flexCheckDefault">

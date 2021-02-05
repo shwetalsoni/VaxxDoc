@@ -10,10 +10,9 @@
 .browse{
     color: #768991;
 }
-span{
+.check-span{
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
 }
 
 .name{
