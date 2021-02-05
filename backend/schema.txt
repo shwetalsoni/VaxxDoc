@@ -10,14 +10,16 @@
     }
 /user/<email>
     GET a user
+/deleteUser/<email>
+    GET
 /markV1
     POST {
-        date: timestamp,
-        hospital: ""
+        email,
+        hospital
     }
 /markV2
     POST {
-        date: timestamp
+        email
     }
 
 /login
