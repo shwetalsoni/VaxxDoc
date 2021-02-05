@@ -1,0 +1,43 @@
+.vacc-div{
+    margin-top: 50px;
+}
+.vaccine{
+    border-radius: 20px;
+    padding: 10px 5px 10px 5px;
+}
+.vaccine-1{
+    background-color: #0984e3;
+}
+.vaccine-2{
+    background-color: #FFA012;
+}
+
+.syringe-icon{
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.vacc-date{
+    color: #fff;
+}
+.vacc-status{
+    color: #fff;
+}
+
+.patient-head{
+    margin-top: 30px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #303030;
+}
+
+.field{
+    color: #768991;
+}
+.display{
+    color: #3A3A55;
+}
+
+.flex{
+    display: flex;
+}

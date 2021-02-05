@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body {
+    background-color: whitesmoke;
+}
+
+.form-body {
+    background-color: #fff;
+    width: 350px;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    margin-top: 40px;
+}
+input {
+    background-color: #F8F8F8;
+    width: 70%;
+    padding: 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+    outline: none;
+  }
+input::placeholder {
+    color: #BEBEBE;
+}
+.btn-com{
+    color: white;
+    outline: none;
+    transition: background-color .5s;
+    cursor: pointer;
+    padding: 7px 15px 7px 15px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    font-size: 18px;
+}
+.btn-signup{
+    background-color: #FFA012;
+    margin-top: 20px;
+    
+}
+.btn-google{
+    background-color: #0984e3;
+    margin-top: 20px ;
+}
+.google-icon{
+    margin-right: 20px;
+}
+
+.heading{
+    margin-bottom: 35px;
+    color: #5f5f63;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.extra{
+    margin: 30px ;
+}
+.small-text{
+    margin-right: 20px;
+}
