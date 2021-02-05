@@ -14,7 +14,7 @@ class PatientRegister extends React.Component{
                             <input type="text" className="form-control" id="exampleInputName" placeholder="Username" />
                         </div>
                         <div className="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
@@ -22,8 +22,8 @@ class PatientRegister extends React.Component{
                         <div className="form-group">
                             <input type="text" className="form-control" id="exampleInputAge" placeholder="Age" />
                         </div>
-                        <div class="form-group">
-                            <select class="form-control" id="exampleFormControlSelect1">
+                        <div className="form-group">
+                            <select className="form-control" id="exampleFormControlSelect1">
                             <option>Female</option>
                             <option>Male</option>
                             <option>Prefer not to reveal</option>
@@ -32,9 +32,9 @@ class PatientRegister extends React.Component{
                         <div className="form-group">
                             <input type="text" className="form-control" id="exampleInputPhone" placeholder="Phone" />
                         </div>
-                        <button type="submit" class="btn-com btn-signup">SIGN UP</button>
+                        <button type="submit" className="btn-com btn-signup">SIGN UP</button>
                     </form> 
-                    <button class="btn-com btn-google"><i class="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
+                    <button className="btn-com btn-google"><i className="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
                     <div className="extra text-center">
                         <span className="small-text">Already have an account?</span>
                         <a href="/patient_login" className="btn-2 btn-login">LOGIN</a>

@@ -1,0 +1,37 @@
+.edit-form{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.btn-search{
+    color: #fff;
+    background-color: #FFA012;
+}
+.browse{
+    color: #768991;
+}
+span{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+.name{
+    margin-top: 70px;
+    font-size: 50px;
+    color: #303030;
+}
+
+.form-check-label{
+    font-size: 20px;
+    color: #49555a;
+}
+.form-check-input{
+    zoom: 1.5;
+}
+.check1{
+    margin-left: 10px;
+}
+.check2{
+    margin-left: 140px;
+}
