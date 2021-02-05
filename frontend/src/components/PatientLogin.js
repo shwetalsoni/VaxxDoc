@@ -11,14 +11,14 @@ class PatientLogin extends React.Component{
                     <form>
                         <h3 className="heading text-center">Login to Continue</h3>
                         <div className="form-group">
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
                         </div>
-                        <button type="submit" class="btn-com btn-signup">LOGIN</button>
+                        <button type="submit" className="btn-com btn-signup">LOGIN</button>
                     </form> 
-                    <button class="btn-com btn-google"><i class="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
+                    <button className="btn-com btn-google"><i className="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
                     <div className="extra text-center">
                         <span className="small">Doesn't have an account?</span>
                         <a href="/patient_reg" className="btn-2 btn-login">SIGN UP</a>

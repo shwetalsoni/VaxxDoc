@@ -11,12 +11,12 @@ class DoctorLogin extends React.Component{
                         <form>
                             <h3 className="heading text-center">Login to Edit Details</h3>
                             <div className="form-group">
-                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
                             </div>
                             <div className="form-group">
                                 <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
                             </div>
-                            <button type="submit" class="btn-com btn-signup">LOGIN</button>
+                            <button type="submit" className="btn-com btn-signup">LOGIN</button>
                         </form> 
                     </div>
                 </div>    

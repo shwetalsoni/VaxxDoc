@@ -1,0 +1,31 @@
+
+.browse{
+    color: #768991;
+}
+.check-span{
+    display: flex;
+    flex-direction: row;
+}
+
+.name{
+    margin-top: 70px;
+    margin-bottom: 30px;
+    font-size: 50px;
+    color: #303030;
+}
+.btn-toggle1{
+    color: #fff;
+    background-color: #0984e3;
+}
+.btn-toggle2{
+    color: #fff;
+    background-color: #0984e3;
+}
+.label-btn{
+    font-size: 18px;
+    color: #495a61;
+}
+.dose2{
+    margin-left: 30px;
+}
+

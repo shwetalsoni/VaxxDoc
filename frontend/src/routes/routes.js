@@ -7,6 +7,7 @@ import PatientLogin from '../components/PatientLogin'
 import PatientInfo from '../components/PatientInfo'
 import DoctorLogin from '../components/DoctorLogin';
 import DoctorEdit from '../components/DoctorEdit';
+import PatientDisplay from '../components/PatientDisplay';
 
 export default function Routes() {
     return (
@@ -18,6 +19,7 @@ export default function Routes() {
                 <Route exact path="/patient_info" component={PatientInfo} />
                 <Route exact path="/doctor_login" component={DoctorLogin} />
                 <Route exact path="/doctor_edit" component={DoctorEdit} />
+                <Route exact path="/patient_display" component={PatientDisplay} />
             </Switch>
         </div>
     )
