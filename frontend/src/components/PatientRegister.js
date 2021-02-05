@@ -11,7 +11,7 @@ class PatientRegister extends React.Component{
                     <form>
                         <h3 className="heading text-center">Welcome to VaxxDoc</h3>
                         <div className="form-group">
-                            <input type="text" className="form-control" id="exampleInputName" placeholder="Username" />
+                            <input type="text" className="form-control" id="exampleInputName" placeholder="Fullname" />
                         </div>
                         <div className="form-group">
                             <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />

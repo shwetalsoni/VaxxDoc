@@ -27,27 +27,34 @@ P{
 }
 
 .btn{
-    margin-top: 50px;
-    font-size: 20px;
 }
 
 .btn:hover, .btn:active, .btn:active{
-    background-color: #303030;
     color: #fff;
     border: 0;
     outline: 0;
 }
 
 .patient{
+    margin-top: 50px;
     margin-right: 10px;
     background-color: #FFA012;
     color: #FAF9FF;
     padding: 7px 32px 7px 32px;
+    font-size: 20px;
+}
+.patient:hover{
+    background-color: #303030;
 }
 
 .doctor{
+    margin-top: 50px;
     border: 2px solid #FFA012;
     color: #FFA012;
+    font-size: 20px;
+}
+.doctor:hover{
+    background-color: #303030;
 }
 
 @media only screen and (max-width: 600px) {

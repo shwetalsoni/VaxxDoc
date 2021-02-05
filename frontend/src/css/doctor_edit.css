@@ -1,12 +1,4 @@
-.edit-form{
-    margin-top: 30px;
-    display: flex;
-    flex-direction: row;
-}
-.btn-search{
-    color: #fff;
-    background-color: #FFA012;
-}
+
 .browse{
     color: #768991;
 }
@@ -17,20 +9,23 @@
 
 .name{
     margin-top: 70px;
+    margin-bottom: 30px;
     font-size: 50px;
     color: #303030;
 }
+.btn-toggle1{
+    color: #fff;
+    background-color: #0984e3;
+}
+.btn-toggle2{
+    color: #fff;
+    background-color: #0984e3;
+}
+.label-btn{
+    font-size: 18px;
+    color: #495a61;
+}
+.dose2{
+    margin-left: 30px;
+}
 
-.form-check-label{
-    font-size: 20px;
-    color: #49555a;
-}
-.form-check-input{
-    zoom: 1.5;
-}
-.check1{
-    margin-left: 10px;
-}
-.check2{
-    margin-left: 140px;
-}
