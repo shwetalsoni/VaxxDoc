@@ -1,0 +1,32 @@
+/user
+    GET all users
+    POST a new user {
+        email,
+        name,
+        age,
+        gender,
+        number,
+        password
+    }
+/user/<email>
+    GET a user
+/markV1
+    POST {
+        date: timestamp,
+        hospital: ""
+    }
+/markV2
+    POST {
+        date: timestamp
+    }
+
+/login
+    POST {
+        email,
+        password
+    }
+/staffLogin
+    POST {
+        email,
+        password
+    }
