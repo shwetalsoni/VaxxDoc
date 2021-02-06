@@ -1,18 +1,17 @@
 import axios from 'axios'
 
+let apiUrl = "https://vaxxdoc.herokuapp.com"
+
 let api = {
-    getData: () =>
+    getUsers: () =>
     axios({
         'method':'GET',
-        'url':'https://vaxxdoc.herokuapp.com/user',
-        // 'headers': {
-        //     'content-type':'application/octet-stream',
-        //     'x-rapidapi-host':'example.com',
-        //     'x-rapidapi-key': process.env.RAPIDAPI_KEY
-        // },
-        'params': {
-            'search':'parameter',
-        },
+        'url': apiUrl + '/user',
+    }),
+    getUser: () =>
+    axios({
+        'method':'GET',
+        'url': apiUrl + '/user' + '/' + 'abcc',
     })
 }
 

@@ -1,7 +1,28 @@
 import React from 'react'
 import  '../css/doctor_edit.css'
+import api from '../api/api'
 
 class DoctorEdit extends React.Component{
+
+  state = {
+    user: {}
+  }
+
+  componentDidMount() {
+    api.getUser()
+    .then((response)=>{
+        this.setState({
+          user : response.data
+        })
+        console.log("asdasfsa", this.state.data)
+        console.log(response)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+  }
+
+  
   render(){
     return (
         <div className="body">

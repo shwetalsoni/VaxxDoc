@@ -4,31 +4,29 @@ import api from '../api/api'
 
 class PatientDisplay extends React.Component{
 
-  // let [responseData, setResponseData] = React.useState('')
-  constructor(props) {
-    const fetchData = (e) => {
-      // e.preventDefault()
-      api.getData()
-      .then((response)=>{
-          this.state = {
-            data : response.data
-          }
-          console.log(response)
-      })
-      .catch((error) => {
-          console.log(error)
-      })
-    }
-    super(props)
-    this.state = {data: {}};
-    fetchData()
+  state = {
+    data: {}
   }
-  // fetches data
-  
+
+  componentDidMount() {
+    api.getUser()
+    .then((response)=>{
+        this.setState({
+          data : response.data
+        })
+        console.log("asdasfsa", this.state.data)
+        console.log(response)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+  }
 
   render(){
     return (
+        
         <div className="body">
+          {/* <p>{this.state.data['name']}</p> */}
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 col-md-8 col-sm-10 mx-auto">
@@ -38,6 +36,10 @@ class PatientDisplay extends React.Component{
                         </form>
                     </div>
                 </div> 
+                <div className="row">
+                  DATA:
+                  {this.state.data.name}
+                </div>
                 <div className="row">
                     <div className="col-10 mx-auto">
                         <table className="table table-hover">
@@ -51,6 +53,7 @@ class PatientDisplay extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
+                                
                                 <tr>
                                     <th scope="row">1</th>
                                     <td>Anshit</td>
