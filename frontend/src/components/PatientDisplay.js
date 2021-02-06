@@ -16,7 +16,7 @@ class PatientDisplay extends React.Component{
                 </div> 
                 <div className="row">
                     <div className="col-10 mx-auto">
-                        <table class="table table-hover">
+                        <table className="table table-hover">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
