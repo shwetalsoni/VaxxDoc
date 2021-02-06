@@ -16,9 +16,9 @@ export default function Routes() {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/patient_reg" component={PatientRegister} />
                 <Route exact path="/patient_login" component={PatientLogin} />
-                <Route exact path="/patient_info" component={PatientInfo} />
+                <Route exact path="/patient_info/:email" component={PatientInfo} />
                 <Route exact path="/doctor_login" component={DoctorLogin} />
-                <Route exact path="/doctor_edit" component={DoctorEdit} />
+                <Route exact path="/doctor_edit/:email" component={DoctorEdit} />
                 <Route exact path="/patient_display" component={PatientDisplay} />
             </Switch>
         </div>

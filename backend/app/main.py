@@ -81,7 +81,6 @@ def markV1View():
 def markV2View():
     try:
         email = request.form["email"]
-        hospital = request.form["hospital"]
     except:
         return {
             'error' : "Bad request"

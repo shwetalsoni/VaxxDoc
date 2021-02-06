@@ -1,8 +1,23 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 import  '../css/doctor_login.css'
 
 class DoctorLogin extends React.Component{
+
+    state = {
+        loggedin: false
+    }
+
+    handleLogin = () => {
+        this.setState({loggedin: true})
+    }
+
   render(){
+
+    if(this.state.loggedin){
+        return <Redirect to="/patient_display"/>
+    }
+
     return (
         <div className="body">
             <div className="container">
@@ -16,7 +31,7 @@ class DoctorLogin extends React.Component{
                             <div className="form-group">
                                 <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
                             </div>
-                            <button type="submit" className="btn-com btn-signup">LOGIN</button>
+                            <button type="button" onClick={this.handleLogin} className="btn-com btn-signup">LOGIN</button>
                         </form> 
                     </div>
                 </div>    

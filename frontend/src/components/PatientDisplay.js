@@ -7,9 +7,10 @@ class PatientDisplay extends React.Component{
   state = {
     data: {}
   }
+  
 
   componentDidMount() {
-    api.getUser()
+    api.getUsers()
     .then((response)=>{
         this.setState({
           data : response.data
@@ -26,7 +27,6 @@ class PatientDisplay extends React.Component{
     return (
         
         <div className="body">
-          {/* <p>{this.state.data['name']}</p> */}
             <div className="container">
                 <div className="row">
                     <div className="col-lg-5 col-md-8 col-sm-10 mx-auto">
@@ -36,10 +36,10 @@ class PatientDisplay extends React.Component{
                         </form>
                     </div>
                 </div> 
-                <div className="row">
+                {/* <div className="row">
                   DATA:
                   {this.state.data.name}
-                </div>
+                </div> */}
                 <div className="row">
                     <div className="col-10 mx-auto">
                         <table className="table table-hover">
@@ -53,35 +53,20 @@ class PatientDisplay extends React.Component{
                                 </tr>
                             </thead>
                             <tbody>
+                                {Object.keys(this.state.data).map((email, i)=> {
+                                    return (
+                                        // <a href="/doctor_edit">
+                                        <tr key={i}>
+                                            <th scope="row"><a href={"/doctor_edit/" + email}>{i+1}</a></th>
+                                            <td><a href={"/doctor_edit/" + email}>{this.state.data[email].name}</a></td>
+                                            <td><a href={"/doctor_edit/" + email}>{email}</a></td>
+                                            <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
+                                            <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
+                                        </tr>
+                                        // </a>       
+                                    )
+                                })}
                                 
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Anshit</td>
-                                    <td>bhardwaj.anshit1379@gmail.com</td>
-                                    <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
-                                    <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Shwetal</td>
-                                    <td>195034@nith.ac.in</td>
-                                    <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
-                                    <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Jacob</td>
-                                    <td>abc@gamil.com</td>
-                                    <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
-                                    <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Jacob</td>
-                                    <td>123@gmail.com</td>
-                                    <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
-                                    <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>

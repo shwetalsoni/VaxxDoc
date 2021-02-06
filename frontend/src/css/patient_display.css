@@ -22,3 +22,11 @@ table{
     color: #fff;
     font-size: 16px;
 }
+
+tr a {
+    color: inherit;
+}
+
+tr a:hover {
+    text-decoration: none;
+}
