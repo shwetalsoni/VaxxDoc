@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from pytezos import pytezos
+from flask_cors import CORS
 from datetime import datetime
 from .config import config
 
@@ -9,7 +10,7 @@ pytezos = pytezos.using(
 contract = pytezos.contract(config['CONTRACT'])
 
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/")
 def index():
