@@ -3,6 +3,6 @@ from app.config import config
 
 if __name__ == "__main__":
     debug = False
-    if 'debug' in config and config['debug']:
+    if 'DEBUG' in config and config['DEBUG']:
         debug = True
     app.run(debug=debug)
