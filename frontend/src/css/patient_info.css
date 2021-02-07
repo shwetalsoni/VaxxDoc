@@ -41,6 +41,17 @@
 .flex{
     display: flex;
 }
+
+.waiting{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+}
+.notfound{
+    text-align: center;
+}
+
 /* loader */
 .loader {
     animation: loader 800ms step-end infinite;
