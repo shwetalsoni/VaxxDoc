@@ -1,7 +1,36 @@
 import React from 'react'
+import api from '../api/api'
 import  '../css/patient_login.css'
 
 class PatientLogin extends React.Component{
+
+  state = {
+    loggedin: false
+  }
+
+  handleEmailChange =  (e) => {
+      this.setState({email: e.target.value});
+  }
+
+  handlePasswordChange =  (e) => {
+      this.setState({password: e.target.value});
+  }
+
+  handleLogin = () => {
+      // this.setState({loggedin: true})
+      api.login(
+          this.state.email,
+          this.state.password
+      )
+      .then((response) => {
+          this.setState({loggedin: true})
+      })
+      .catch((error) => {
+          console.log(error)
+          alert("Wrong email or password.")
+      })
+  }
+
   render(){
     return (
       <div className="body">
@@ -11,10 +40,10 @@ class PatientLogin extends React.Component{
                     <form>
                         <h3 className="heading text-center">Login to Continue</h3>
                         <div className="form-group">
-                            <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                            <input type="email" className="form-control" id="email" onChange={this.handleNameChange} placeholder="Email" />
                         </div>
                         <div className="form-group">
-                            <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
+                            <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" />
                         </div>
                         <button type="submit" className="btn-com btn-signup">LOGIN</button>
                     </form> 

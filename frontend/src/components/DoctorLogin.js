@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router'
+import api from '../api/api'
 import  '../css/doctor_login.css'
 
 class DoctorLogin extends React.Component{
@@ -8,8 +9,27 @@ class DoctorLogin extends React.Component{
         loggedin: false
     }
 
+    handleEmailChange =  (e) => {
+        this.setState({email: e.target.value});
+    }
+
+    handlePasswordChange =  (e) => {
+        this.setState({password: e.target.value});
+    }
+
     handleLogin = () => {
-        this.setState({loggedin: true})
+        // this.setState({loggedin: true})
+        api.staffLogin(
+            this.state.email,
+            this.state.password
+        )
+        .then((response) => {
+            this.setState({loggedin: true})
+        })
+        .catch((error) => {
+            console.log(error)
+            alert("Wrong email or password.")
+        })
     }
 
   render(){
@@ -26,10 +46,10 @@ class DoctorLogin extends React.Component{
                         <form>
                             <h3 className="heading text-center">Login to Edit Details</h3>
                             <div className="form-group">
-                                <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" />
+                                <input type="email" className="form-control" id="email" onChange={this.handleNameChange} aria-describedby="emailHelp" placeholder="Email" />
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control" id="exampleInputPassword" placeholder="Password" />
+                                <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" />
                             </div>
                             <button type="button" onClick={this.handleLogin} className="btn-com btn-signup">LOGIN</button>
                         </form> 

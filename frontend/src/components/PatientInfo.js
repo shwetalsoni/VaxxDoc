@@ -4,6 +4,7 @@ import {useParams} from 'react-router-dom'
 import api from '../api/api'
 import  '../css/patient_info.css'
 import Syringe from '../images/syringe.png'
+import {Redirect} from 'react-router'
 
 function PatientInfo() {
     let { email } = useParams();
@@ -101,6 +102,9 @@ function PatientInfo() {
                 <path fill="#4468d6" opacity="0.5" d="M173.735 338.283c-9.087-9.089-23.825-9.089-32.912 0l-65.825 65.825c-9.089 9.087-9.089 23.825 0 32.913 4.544 4.544 10.501 6.815 16.457 6.815s11.913-2.271 16.455-6.815l65.825-65.825c9.089-9.087 9.089-23.822 0-32.911z"></path>
             </svg>
         )
+    }
+    if(!loggedIn){
+        return <Redirect to={'/'} />
     }
     if(notFound) {
         return (
