@@ -91,8 +91,10 @@ function PatientInfo() {
     if(notFound) {
         return (
             <>
-                <h1>Not Found</h1>
-                <p>If you created the account just now, wait atleast 20s. It takes some time to update the blockchain.</p>
+                <div className="waiting">
+                    <h1 className="notfound">Not Found</h1>
+                    <p className="wait">If you created the account just now, wait atleast 20s. It takes some time to update the blockchain.</p>
+                </div>
             </>
         )
     }
