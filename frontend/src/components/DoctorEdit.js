@@ -45,20 +45,9 @@ function DoctorEdit() {
         })
     }
 
-    let v1Date = new Date(user.v1Date * 1000)
-    let v2Date = new Date(user.v2Date * 1000)
-  
     return (
         <div className="body">
             <div className="container">
-                {/* <div className="row">
-                    <div className="col-lg-5 col-md-8 col-sm-10 mx-auto">
-                        <form className="edit-form">
-                            <input className="form-control" type="search" placeholder="Browse patients to edit info below" aria-label="Search" />
-                            <button className="btn btn-search  my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>  */}
                 { notFound ? (
                     <div className="row">
                         <h1>Not Found</h1>
@@ -92,15 +81,13 @@ function DoctorEdit() {
                         <span className="check-span">
                             <div className="dose1">
                                 <p className="label-btn">Dose 1</p>
-                                <button type="submit" className="btn btn-toggle1" onClick={markV1}>
-                                    {user.v1 ? ("Vaccinated") : ("Mark as Vaccinated")}
-                                </button>
+                                {user.v1 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
+                                           (<button type="submit" onClick={markV1} className="btn toggle-2">Mark as Vaccinated</button>)}
                             </div>
                             <div className="dose2">
-                                <p className="label-btn">Dose 2</p>
-                                <button type="submit" className="btn btn-toggle2"onClick={markV2}>
-                                    {user.v2 ? ("Vaccinated") : ("Mark as Vaccinated")}
-                                </button>
+                                <p className="label-btn">Dose 2</p> 
+                                {user.v2 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
+                                           (<button type="submit" onClick={markV2} className="btn btn-toggle2">Mark as Vaccinated</button>)}
                             </div>
                         </span>
                     </div>

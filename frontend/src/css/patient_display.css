@@ -13,14 +13,14 @@ table{
 }
 
 .vac-btn{
-    background-color: #0984e3;
-    color: #fff;
+    color: #0984e3;
     font-size: 16px;
+    font-weight: 500;
 }
 .novac-btn{
-    background-color: #303030;
-    color: #fff;
+    color: #FFA012;
     font-size: 16px;
+    font-weight: 500;
 }
 
 tr a {

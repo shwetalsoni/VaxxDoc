@@ -8,7 +8,6 @@ class PatientDisplay extends React.Component{
     data: {}
   }
   
-
   componentDidMount() {
     api.getUsers()
     .then((response)=>{
@@ -36,10 +35,6 @@ class PatientDisplay extends React.Component{
                         </form>
                     </div>
                 </div> 
-                {/* <div className="row">
-                  DATA:
-                  {this.state.data.name}
-                </div> */}
                 <div className="row">
                     <div className="col-10 mx-auto">
                         <table className="table table-hover">
@@ -55,15 +50,13 @@ class PatientDisplay extends React.Component{
                             <tbody>
                                 {Object.keys(this.state.data).map((email, i)=> {
                                     return (
-                                        // <a href="/doctor_edit">
                                         <tr key={i}>
                                             <th scope="row"><a href={"/doctor_edit/" + email}>{i+1}</a></th>
                                             <td><a href={"/doctor_edit/" + email}>{this.state.data[email].name}</a></td>
                                             <td><a href={"/doctor_edit/" + email}>{email}</a></td>
-                                            <td><button className="btn vac-btn btn-sm">Vaccinated</button></td>
-                                            <td><button className="btn novac-btn btn-sm">Not Vaccinated</button></td>
+                                            <td>{this.state.data[email].v1 ? (<p className="vac-btn">Vaccinated</p>) : (<p className="novac-btn">Not Vaccinated</p>)}</td>
+                                            <td>{this.state.data[email].v2 ? (<p className="vac-btn">Vaccinated</p>) : (<p className="novac-btn">Not Vaccinated</p>)}</td>
                                         </tr>
-                                        // </a>       
                                     )
                                 })}
                                 
