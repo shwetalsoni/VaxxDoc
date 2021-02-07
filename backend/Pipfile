@@ -10,6 +10,8 @@ flask = "*"
 gunicorn = "*"
 pytezos = "*"
 flask-cors = "*"
+pymongo = "*"
+dnspython = "*"
 
 [requires]
 python_version = "3.9"

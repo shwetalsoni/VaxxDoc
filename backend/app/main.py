@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from pytezos import pytezos
+import pymongo
 from flask_cors import CORS
 from datetime import datetime
 from .config import config
@@ -11,6 +12,11 @@ contract = pytezos.contract(config['CONTRACT'])
 
 app = Flask(__name__)
 CORS(app)
+
+mongoCluster = pymongo.MongoClient(config['DATABASE_URL'])
+db = mongoCluster.db
+usersCollection = db.users
+superuserCollection = db.superuser
 
 @app.route("/")
 def index():
