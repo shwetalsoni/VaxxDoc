@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/VaxxDoc/static/css/main.166e70cb.chunk.css",
-    "main.js": "/VaxxDoc/static/js/main.b8680212.chunk.js",
-    "main.js.map": "/VaxxDoc/static/js/main.b8680212.chunk.js.map",
+    "main.css": "/VaxxDoc/static/css/main.00649ef8.chunk.css",
+    "main.js": "/VaxxDoc/static/js/main.3297cd94.chunk.js",
+    "main.js.map": "/VaxxDoc/static/js/main.3297cd94.chunk.js.map",
     "runtime-main.js": "/VaxxDoc/static/js/runtime-main.ef76d50e.js",
     "runtime-main.js.map": "/VaxxDoc/static/js/runtime-main.ef76d50e.js.map",
     "static/js/2.b40bb228.chunk.js": "/VaxxDoc/static/js/2.b40bb228.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.ec6bb73c.chunk.js": "/VaxxDoc/static/js/3.ec6bb73c.chunk.js",
     "static/js/3.ec6bb73c.chunk.js.map": "/VaxxDoc/static/js/3.ec6bb73c.chunk.js.map",
     "index.html": "/VaxxDoc/index.html",
-    "static/css/main.166e70cb.chunk.css.map": "/VaxxDoc/static/css/main.166e70cb.chunk.css.map",
+    "static/css/main.00649ef8.chunk.css.map": "/VaxxDoc/static/css/main.00649ef8.chunk.css.map",
     "static/js/2.b40bb228.chunk.js.LICENSE.txt": "/VaxxDoc/static/js/2.b40bb228.chunk.js.LICENSE.txt",
     "static/media/inject.84dc99d2.jpg": "/VaxxDoc/static/media/inject.84dc99d2.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.ef76d50e.js",
     "static/js/2.b40bb228.chunk.js",
-    "static/css/main.166e70cb.chunk.css",
-    "static/js/main.b8680212.chunk.js"
+    "static/css/main.00649ef8.chunk.css",
+    "static/js/main.3297cd94.chunk.js"
   ]
 }
