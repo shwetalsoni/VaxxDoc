@@ -39,6 +39,12 @@
         loggedin: bool
     }
 
+/checkStaffLogin
+    GET
+    response.data {
+        loggedin: bool
+    }
+
 /logout
     GET
 

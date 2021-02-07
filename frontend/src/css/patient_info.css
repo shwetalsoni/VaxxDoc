@@ -51,6 +51,14 @@
 .notfound{
     text-align: center;
 }
+.logout{
+  color: #ffffff;
+  background-color: #FFA012;
+}
+.logout-div{
+  display: flex;
+  justify-content: flex-end;
+}
 
 /* loader */
 .loader {

@@ -11,10 +11,12 @@ function PatientInfo() {
     let [user, setUser] = React.useState('')
     let [loaded, setLoaded] = React.useState('')
     let [notFound, setNotFound] = React.useState('')
+    let [loggedIn, setloggedIn] = React.useState('')
 
     useEffect(() => {
         api.getUser(email)
         .then((response)=>{
+            setloggedIn(true)
             setUser(response.data)
             setLoaded(true)
             console.log(response)
@@ -25,6 +27,18 @@ function PatientInfo() {
             setNotFound(true)
         })
     }, [email])
+
+    let handleLogout = () => {
+        api.logout(
+
+        )
+        .then((response) => {
+            this.setState({loggedIn: false})
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
 
     let vaccine1Card, vaccine2Card
     let v1Date = new Date(user.v1Date * 1000)
@@ -142,7 +156,9 @@ function PatientInfo() {
                             <span className="input-group-text" id="basic-addon1">Phone Number</span>
                             <span className="detail form-control">{user.number}</span>
                         </div>
-                        <button type="submit" className="logout">Logout</button>
+                        <div class="logout-div">
+                            <button type="submit" onClick={handleLogout} className="btn logout">Exit and Logout</button>
+                        </div>
                     </div>
                 </div> 
             </div>          

@@ -55,64 +55,120 @@ def usersView():
             session['password'] = password
             return {}
     else:
-        usersMap = contract.storage()
-        return usersMap
+        if 'type' in session and session['type'] == 0:
+            usersMap = contract.storage()
+            return usersMap
+        return {}, 403
 
 @app.route("/login", methods=["POST"])
 def loginView():
     try:
         email = request.form["email"]
-        passwordHash = request.form["password"]
+        password = request.form["password"]
         user = usersCollection.find_one({'email': email})
+        if user['password'] == sha256(str(password).encode('utf8')).hexdigest():
+            session['type'] = 1
+            session['email'] = email
+            session['password'] = password
+            return {}
     except:
-        pass
+        return {}, 404
+    return {}, 404
 
+@app.route("/staffLogin", methods=["POST"])
+def staffLoginView():
+    try:
+        email = request.form["email"]
+        password = request.form["password"]
+        superuser = superuserCollection.find_one({'email': email})
+        if superuser['password'] == sha256(str(password).encode('utf8')).hexdigest():
+            session['type'] = 0
+            session['email'] = email
+            session['password'] = password
+            return {}
+    except:
+        return {}, 404
+    return {}, 404
+
+@app.route("/checkLogin")
+def checkLoginView():
+    if 'type' in session and session['type'] == 1:
+        return {
+            'loggedin': True
+        }
+    return {
+        'loggedin': False
+    }
+
+@app.route("/checkStaffLogin")
+def checkStaffLoginView():
+    if 'type' in session and session['type'] == 0:
+        return {
+            'loggedin': True
+        }
+    return {
+        'loggedin': False
+    }
+
+@app.route("/logout")
+def logoutView():
+    session.pop('type', None)
+    session.pop('email', None)
+    session.pop('password', None)
 
 @app.route("/user/<string:email>")
 def getUserView(email):
-    usersMap = contract.storage()
-    usersMap = dict(usersMap)
-    if email in usersMap:
-        return usersMap[email]
-    return {
-        'error' : "Not found"
-    }, 404
+    if 'email' in session and session['email'] == email:
+        usersMap = contract.storage()
+        usersMap = dict(usersMap)
+        if email in usersMap:
+            return usersMap[email]
+        return {
+            'error' : "Not found"
+        }, 404
+    return {}, 403
 
 @app.route("/deleteUser/<string:email>")
 def deleteUserView(email):
-    contract.deleteUser(                    # TODO
-        email=email
-    ).operation_group.sign().inject()
-    return {}
+    if 'type' in session and session['type'] == 0:
+        contract.deleteUser(                    # TODO
+            email=email
+        ).operation_group.sign().inject()
+        return {}
+    return {}, 403
 
 @app.route("/markV1", methods=["POST"])
 def markV1View():
-    try:
-        email = request.form["email"]
-        hospital = request.form["hospital"]
-    except:
-        return {
-            'error' : "Bad request"
-        }, 400
-    finally:
-        contract.markV1(
-            email=email,
-            date=int(datetime.now().timestamp()),
-            hospital=hospital
-        ).operation_group.sign().inject()
-        return {}
+    if 'type' in session and session['type'] == 0:
+        try:
+            email = request.form["email"]
+            hospital = request.form["hospital"]
+        except:
+            return {
+                'error' : "Bad request"
+            }, 400
+        finally:
+            contract.markV1(
+                email=email,
+                date=int(datetime.now().timestamp()),
+                hospital=hospital
+            ).operation_group.sign().inject()
+            return {}
+    return {}, 403
 
 @app.route("/markV2", methods=["POST"])
 def markV2View():
-    try:
-        email = request.form["email"]
-    except:
-        return {
-            'error' : "Bad request"
-        }, 400
-    finally:
-        contract.markV2(
-            email=email,
-            date=int(datetime.now().timestamp())
-        ).operation_group.sign().inject()
-        return {}
+    if 'type' in session and session['type'] == 0:
+        try:
+            email = request.form["email"]
+        except:
+            return {
+                'error' : "Bad request"
+            }, 400
+        finally:
+            contract.markV2(
+                email=email,
+                date=int(datetime.now().timestamp())
+            ).operation_group.sign().inject()
+            return {}
+    return {}, 403
