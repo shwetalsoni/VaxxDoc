@@ -142,6 +142,7 @@ function PatientInfo() {
                             <span className="input-group-text" id="basic-addon1">Phone Number</span>
                             <span className="detail form-control">{user.number}</span>
                         </div>
+                        <button type="submit" className="logout">Logout</button>
                     </div>
                 </div> 
             </div>          

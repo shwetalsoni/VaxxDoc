@@ -32,3 +32,17 @@
         email,
         password
     }
+
+/checkLogin
+    GET
+    response.data {
+        loggedin: bool
+    }
+
+/logout
+    GET
+
+session data:
+    type: 0 for superuser, 1 for user
+    email
+    password

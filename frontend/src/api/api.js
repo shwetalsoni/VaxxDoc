@@ -55,10 +55,40 @@ let api = {
         })
     },
 
+    login: (email, password) => {
+        var bodyFormData = new FormData()
+        bodyFormData.append('email', email)
+        bodyFormData.append('password', password)
+        return axios({
+            method: 'POST',
+            url: apiUrl + '/login',
+            data: bodyFormData,
+            headers: {'Content-Type': 'multipart/form-data' }
+        })
+    },
+
+    staffLogin: (email, password) => {
+        var bodyFormData = new FormData()
+        bodyFormData.append('email', email)
+        bodyFormData.append('password', password)
+        return axios({
+            method: 'POST',
+            url: apiUrl + '/staffLogin',
+            data: bodyFormData,
+            headers: {'Content-Type': 'multipart/form-data' }
+        })
+    },
+
     checkLogin: () =>
     axios({
         'method':'GET',
         'url': apiUrl + '/checkLogin',
+    }),
+
+    logout: () =>
+    axios({
+        'method':'GET',
+        'url': apiUrl + '/logout',
     }),
 }
 

@@ -9,6 +9,8 @@ function DoctorEdit() {
     let { email } = useParams();
 
     let [user, setUser] = React.useState('')
+    let [v1, setV1] = React.useState('')
+    let [v2, setV2] = React.useState('')
     let [notFound, setNotFound] = React.useState('')
     let [markingVaccination, setMarkingVaccination] = React.useState('')
 
@@ -28,8 +30,7 @@ function DoctorEdit() {
         setMarkingVaccination(true)
         api.markV1(email, "AIIMS")
         .then((response) => {
-            user.v1 = true
-            setUser(user)
+            setV1(true)
             setMarkingVaccination(false)
         })
         .catch((error) => {
@@ -42,8 +43,7 @@ function DoctorEdit() {
         setMarkingVaccination(true)
         api.markV2(email)
         .then((response) => {
-            user.v2 = true
-            setUser(user)
+            setV2(true)
             setMarkingVaccination(false)
         })
         .catch((error) => {
@@ -101,12 +101,12 @@ function DoctorEdit() {
                         <span className="check-span">
                             <div className="dose1">
                                 <p className="label-btn">Dose 1</p>
-                                {user.v1 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
+                                {user.v1 || v1 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
                                            (<button type="submit" onClick={markV1} className="btn btn-toggle2">Mark as Vaccinated</button>)}
                             </div>
                             <div className="dose2">
                                 <p className="label-btn">Dose 2</p> 
-                                {user.v2 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
+                                {user.v2 || v2 ? (<button type="submit" className="btn btn-toggle1">Vaccinated</button>) : 
                                            (<button type="submit" onClick={markV2} className="btn btn-toggle2">Mark as Vaccinated</button>)}
                             </div>
                         </span>

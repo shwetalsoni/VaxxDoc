@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, session
 from pytezos import pytezos
 import pymongo
 from flask_cors import CORS
+from hashlib import sha256
 from datetime import datetime
 from .config import config
 
@@ -45,10 +46,27 @@ def usersView():
                 gender=gender,
                 number=number
             ).operation_group.sign().inject()
+            usersCollection.insert_one({
+                'email': email,
+                'password': sha256(str(password).encode('utf8')).hexdigest()
+            })
+            session['type'] = 1
+            session['email'] = email
+            session['password'] = password
             return {}
     else:
         usersMap = contract.storage()
         return usersMap
+
+@app.route("/login", methods=["POST"])
+def loginView():
+    try:
+        email = request.form["email"]
+        passwordHash = request.form["password"]
+        user = usersCollection.find_one({'email': email})
+    except:
+        pass
+
 
 @app.route("/user/<string:email>")
 def getUserView(email):
