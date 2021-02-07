@@ -54,6 +54,12 @@ let api = {
             headers: {'Content-Type': 'multipart/form-data' }
         })
     },
+
+    checkLogin: () =>
+    axios({
+        'method':'GET',
+        'url': apiUrl + '/checkLogin',
+    }),
 }
 
 export default api
