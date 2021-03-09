@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/VaxxDoc/static/css/main.74433190.chunk.css",
-    "main.js": "/VaxxDoc/static/js/main.e208ea26.chunk.js",
-    "main.js.map": "/VaxxDoc/static/js/main.e208ea26.chunk.js.map",
+    "main.js": "/VaxxDoc/static/js/main.271ee72e.chunk.js",
+    "main.js.map": "/VaxxDoc/static/js/main.271ee72e.chunk.js.map",
     "runtime-main.js": "/VaxxDoc/static/js/runtime-main.ef76d50e.js",
     "runtime-main.js.map": "/VaxxDoc/static/js/runtime-main.ef76d50e.js.map",
     "static/js/2.94dadcbb.chunk.js": "/VaxxDoc/static/js/2.94dadcbb.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.ef76d50e.js",
     "static/js/2.94dadcbb.chunk.js",
     "static/css/main.74433190.chunk.css",
-    "static/js/main.e208ea26.chunk.js"
+    "static/js/main.271ee72e.chunk.js"
   ]
 }
