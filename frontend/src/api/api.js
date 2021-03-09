@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// let apiUrl = "https://vaxxdoc.herokuapp.com"
-let apiUrl = "http://127.0.0.1:5000"
+let apiUrl = "https://vaxxdoc.herokuapp.com"
+// let apiUrl = "http://127.0.0.1:5000"
 
 let api = {
     getUsers: () =>

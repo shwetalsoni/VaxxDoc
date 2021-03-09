@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import { Redirect } from 'react-router'
 import api from '../api/api';
 import  '../css/patient_reg.css'
@@ -101,7 +102,7 @@ class PatientRegister extends React.Component{
                     <button className="btn-com btn-google"><i className="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
                     <div className="extra text-center">
                         <span className="small-text">Already have an account?</span>
-                        <a href="/patient_login" className="btn-2 btn-login">LOGIN</a>
+                        <Link to="/patient_login" className="btn-2 btn-login">LOGIN</Link>
                     </div>
                   </div>
               </div>    

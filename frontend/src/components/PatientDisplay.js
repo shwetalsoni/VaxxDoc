@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import  '../css/patient_display.css'
 import api from '../api/api'
 
@@ -51,9 +52,9 @@ class PatientDisplay extends React.Component{
                                 {Object.keys(this.state.data).map((email, i)=> {
                                     return (
                                         <tr key={i}>
-                                            <th scope="row"><a href={"/doctor_edit/" + email}>{i+1}</a></th>
-                                            <td><a href={"/doctor_edit/" + email}>{this.state.data[email].name}</a></td>
-                                            <td><a href={"/doctor_edit/" + email}>{email}</a></td>
+                                            <th scope="row"><Link to={"/doctor_edit/" + email}>{i+1}</Link></th>
+                                            <td><Link to={"/doctor_edit/" + email}>{this.state.data[email].name}</Link></td>
+                                            <td><Link to={"/doctor_edit/" + email}>{email}</Link></td>
                                             <td>{this.state.data[email].v1 ? (<p className="vac-btn">Vaccinated</p>) : (<p className="novac-btn">Not Vaccinated</p>)}</td>
                                             <td>{this.state.data[email].v2 ? (<p className="vac-btn">Vaccinated</p>) : (<p className="novac-btn">Not Vaccinated</p>)}</td>
                                         </tr>

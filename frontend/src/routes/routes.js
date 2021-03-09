@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Switch} from 'react-router-dom';
+import {Route, BrowserRouter} from 'react-router-dom';
 
 import Home from '../components/Home'
 import PatientRegister from '../components/PatientRegister'
@@ -12,7 +12,7 @@ import PatientDisplay from '../components/PatientDisplay';
 export default function Routes() {
     return (
         <div>
-            <Switch>
+            <BrowserRouter basename={'/VaxxDoc'}>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/patient_reg" component={PatientRegister} />
                 <Route exact path="/patient_login" component={PatientLogin} />
@@ -20,7 +20,7 @@ export default function Routes() {
                 <Route exact path="/doctor_login" component={DoctorLogin} />
                 <Route exact path="/doctor_edit/:email" component={DoctorEdit} />
                 <Route exact path="/patient_display" component={PatientDisplay} />
-            </Switch>
+            </BrowserRouter>
         </div>
     )
 }

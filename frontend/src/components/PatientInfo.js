@@ -103,9 +103,9 @@ function PatientInfo() {
             </svg>
         )
     }
-    if(!loggedIn){
-        return <Redirect to={'/'} />
-    }
+    // if(!loggedIn){
+    //     return <Redirect to={'/'} />
+    // }
     if(notFound) {
         return (
             <>
