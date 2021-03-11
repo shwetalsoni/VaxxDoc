@@ -10,7 +10,7 @@ class Home extends React.Component{
       <div className="body text-center">
         <header>
             <img src={heroImg}  className="hero-img" alt="vaccination"/>
-            <section className='hero-text'>
+            <section className="hero-text">
                 <h1 className="welcome-head">Welcome to VaxxDoc</h1>
                 <p className="welcome-text">Securely record and access administered COVID-19 vaccinations</p>
                 <span>

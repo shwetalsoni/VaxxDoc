@@ -28,11 +28,11 @@ class PatientDisplay extends React.Component{
         
         <div className="body">
             <div className="container">
-                <div className="row">
+                <div className="row mx-auto">
                     <div className="col-lg-5 col-md-8 col-sm-10 mx-auto">
                         <form className="edit-form">
-                            <input className="form-control" type="search" placeholder="Browse patients to edit info below" aria-label="Search" />
-                            <button className="btn btn-search  my-2 my-sm-0" type="submit">Search</button>
+                            <input className="form-control mr-2" type="search" placeholder="Browse patients to edit info below" aria-label="Search" />
+                            <button className="btn search  my-2 my-sm-0" type="submit">Search</button>
                         </form>
                     </div>
                 </div> 
