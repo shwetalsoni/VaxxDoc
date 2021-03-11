@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import { Redirect } from 'react-router'
 import api from '../api/api'
 import  '../css/patient_login.css'
 
@@ -33,6 +34,11 @@ class PatientLogin extends React.Component{
   }
 
   render(){
+
+    if(this.state.loggedin){
+        return <Redirect to={"/patient_info/" + this.state.email} />
+    }
+
     return (
       <div className="body">
           <div className="container">
@@ -46,7 +52,7 @@ class PatientLogin extends React.Component{
                         <div className="form-group">
                             <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" />
                         </div>
-                        <button type="submit" className="btn-com btn-signup">LOGIN</button>
+                        <button type="button" onClick={this.handleLogin} className="btn-com btn-signup">LOGIN</button>
                     </form> 
                     <button className="btn-com btn-google"><i className="fa fa-google google-icon" aria-hidden="true"></i>SIGN IN WITH GOOGLE</button>
                     <div className="extra text-center">
