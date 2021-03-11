@@ -12,7 +12,7 @@ import PatientDisplay from '../components/PatientDisplay';
 export default function Routes() {
     return (
         <div>
-            <BrowserRouter basename={'/VaxxDoc'}>
+            <BrowserRouter>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/patient_reg" component={PatientRegister} />
                 <Route exact path="/patient_login" component={PatientLogin} />
