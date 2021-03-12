@@ -47,7 +47,7 @@ class PatientLogin extends React.Component{
                     <form>
                         <h3 className="heading text-center">Login to Continue</h3>
                         <div className="form-group">
-                            <input type="email" className="form-control" id="email" onChange={this.handleNameChange} placeholder="Email" />
+                            <input type="email" className="form-control" id="email" onChange={this.handleEmailChange} placeholder="Email" />
                         </div>
                         <div className="form-group">
                             <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" />
