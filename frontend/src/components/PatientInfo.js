@@ -14,12 +14,12 @@ function PatientInfo() {
     let [user, setUser] = React.useState('')
     let [loaded, setLoaded] = React.useState('')
     let [notFound, setNotFound] = React.useState('')
-    let [loggedIn, setloggedIn] = React.useState('')
+    let [loggedIn, setLoggedIn] = React.useState('')
 
     useEffect(() => {
         api.getUser(email)
         .then((response)=>{
-            setloggedIn(true)
+            setLoggedIn(true)
             setUser(response.data)
             setLoaded(true)
             console.log(response)
@@ -32,11 +32,9 @@ function PatientInfo() {
     }, [email])
 
     let handleLogout = () => {
-        api.logout(
-            
-        )
+        api.logout()
         .then((response) => {
-            this.setState({loggedIn: false})
+            setLoggedIn(false)
         })
         .catch((error) => {
             console.log(error)
@@ -97,11 +95,7 @@ function PatientInfo() {
         return (
             <Loader/>
         )
-    }
-    // if(!loggedIn){
-    //     return <Redirect to={'/'} />
-    // }
-    if(notFound) {
+    }else if(notFound) {
         return (
             <>
                 <div className="waiting">
@@ -111,6 +105,10 @@ function PatientInfo() {
                 </div>
             </>
         )
+    }else if(!loggedIn){
+        return(
+            <Redirect to={'/'} />
+        ) 
     }
 
     return (

@@ -103,6 +103,7 @@ function DoctorEdit() {
                                            (<button type="submit" onClick={markV2} className="btn btn-toggle2">Mark as Vaccinated</button>)}
                             </div>
                         </span>
+                        <p className="additional-text">It may take a while to update the data</p>
                     </div>
                 </div>   
             </div>          
