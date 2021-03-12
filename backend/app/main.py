@@ -38,22 +38,21 @@ def usersView():
             return {
                 'error' : "Bad request"
             }, 400
-        finally:
-            contract.addUser(
-                email=email,
-                name=name,
-                age=age,
-                gender=gender,
-                number=number
-            ).operation_group.sign().inject()
-            usersCollection.insert_one({
-                'email': email,
-                'password': sha256(str(password).encode('utf8')).hexdigest()
-            })
-            session['type'] = 1
-            session['email'] = email
-            session['password'] = password
-            return {}
+        contract.addUser(
+            email=email,
+            name=name,
+            age=age,
+            gender=gender,
+            number=number
+        ).operation_group.sign().inject()
+        usersCollection.insert_one({
+            'email': email,
+            'password': sha256(str(password).encode('utf8')).hexdigest()
+        })
+        session['type'] = 1
+        session['email'] = email
+        session['password'] = password
+        return {}
     else:
         if True or 'type' in session and session['type'] == 0:
             usersMap = contract.storage()
@@ -115,6 +114,7 @@ def logoutView():
     session.pop('type', None)
     session.pop('email', None)
     session.pop('password', None)
+    return {}
 
 @app.route("/user/<string:email>")
 def getUserView(email):
