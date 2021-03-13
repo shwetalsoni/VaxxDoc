@@ -1,6 +1,6 @@
 import React from 'react'
 import {useEffect} from 'react'
-import {useParams} from 'react-router-dom'
+import {useParams, Redirect} from 'react-router-dom'
 import api from '../api/api'
 import  '../css/doctor_edit.css'
 import Loader from './Loader'
@@ -10,21 +10,41 @@ function DoctorEdit() {
     let { email } = useParams();
 
     let [user, setUser] = React.useState('')
-    let [v1, setV1] = React.useState('')
-    let [v2, setV2] = React.useState('')
-    let [notFound, setNotFound] = React.useState('')
-    let [markingVaccination, setMarkingVaccination] = React.useState('')
+    let [v1, setV1] = React.useState(false)
+    let [v2, setV2] = React.useState(false)
+    let [notFound, setNotFound] = React.useState(false)
+    let [loading, setLoading] = React.useState(true)
+    let [loggedin, setLoggedin] = React.useState(false)
+    let [markingVaccination, setMarkingVaccination] = React.useState(false)
 
     useEffect(() => {
-        api.getUser(email)
-        .then((response)=>{
-            setUser(response.data)
+
+        api.checkStaffLogin()
+        .then((response) => {
             console.log(response)
+            if(response.data.loggedin === true){
+                setLoggedin(true)
+
+                api.getUser(email)
+                .then((response)=>{
+                    setUser(response.data)
+                    setLoading(false)
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setNotFound(true)
+                    setLoading(false)
+                })
+            }else{
+                setLoading(false)
+            }
         })
         .catch((error) => {
             console.log(error)
-            setNotFound(true)
+            setLoading(false)
         })
+
     }, [email])
 
     let markV1 = () => {
@@ -51,6 +71,14 @@ function DoctorEdit() {
             console.log(error)
             setMarkingVaccination(false)
         })
+    }
+
+    if(loading){
+        return <Loader/>
+    }
+
+    if(!loggedin){
+        return <Redirect to="/"/>
     }
 
     return (

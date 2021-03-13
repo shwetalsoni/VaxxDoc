@@ -2,11 +2,15 @@ import React from 'react'
 import { Redirect } from 'react-router'
 import api from '../api/api'
 import  '../css/doctor_login.css'
+import Loader from './Loader'
 
 class DoctorLogin extends React.Component{
 
     state = {
-        loggedin: false
+        loggedin: false,
+        loading: true,
+        email: 'test@example.com',
+        password: '123'
     }
 
     handleEmailChange =  (e) => {
@@ -25,6 +29,7 @@ class DoctorLogin extends React.Component{
         )
         .then((response) => {
             this.setState({loggedin: true})
+            console.log(response.headers)
         })
         .catch((error) => {
             console.log(error)
@@ -32,7 +37,29 @@ class DoctorLogin extends React.Component{
         })
     }
 
+    isLoggedin = () => {
+        api.checkStaffLogin()
+        .then((response) => {
+            console.log(response)
+            if(response.data.loggedin === true)
+                this.setState({loggedin: true})
+            this.setState({loading: false})
+        })
+        .catch((error) => {
+            console.log(error)
+            this.setState({loading: false})
+        })
+    }
+
+    componentDidMount(){
+        this.isLoggedin()
+    }
+
   render(){
+
+    if(this.state.loading){
+        return <Loader/>
+    }
 
     if(this.state.loggedin){
         return <Redirect to="/patient_display"/>
@@ -46,10 +73,10 @@ class DoctorLogin extends React.Component{
                         <form>
                             <h3 className="heading text-center">Login to Edit Details</h3>
                             <div className="form-group">
-                                <input type="email" className="form-control" id="email" onChange={this.handleNameChange} aria-describedby="emailHelp" placeholder="Email" />
+                                <input type="email" className="form-control" id="email" onChange={this.handleEmailChange} aria-describedby="emailHelp" placeholder="Email" defaultValue="test@example.com" />
                             </div>
                             <div className="form-group">
-                                <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" />
+                                <input type="password" className="form-control" id="password" onChange={this.handlePasswordChange} placeholder="Password" defaultValue="123" />
                             </div>
                             <button type="button" onClick={this.handleLogin} className="btn-com btn-signup">LOGIN</button>
                         </form> 

@@ -1,32 +1,77 @@
 import React from 'react'
+import { Redirect } from 'react-router'
 import {Link} from 'react-router-dom';
 import  '../css/patient_display.css'
 import api from '../api/api'
+import Loader from './Loader'
 
 class PatientDisplay extends React.Component{
 
-  state = {
-    data: {}
-  }
-  
-  componentDidMount() {
-    api.getUsers()
-    .then((response)=>{
-        this.setState({
-          data : response.data
-        })
-        console.log("asdasfsa", this.state.data)
-        console.log(response)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
-  }
+    state = {
+        data: {},
+        loading: true,
+        loggedin: false
+    }
 
-  render(){
-    return (
+    componentDidMount() {
+
+        api.checkStaffLogin()
+        .then((response) => {
+            console.log(response)
+            if(response.data.loggedin === true){
+                this.setState({loggedin: true})
+                this.getUsersData()
+            }else{
+                this.setState({loading: false})
+            }
+        })
+        .catch((error) => {
+            console.log(error)
+            this.setState({loading: false})
+        })
+
+        
+    }
+
+    getUsersData = () => {
+        api.getUsers()
+        .then((response)=>{
+            this.setState({
+                loading: false,
+                data: response.data
+            })
+            console.log(response)
+        })
+        .catch((error) => {
+            alert("Error while fetching data.")
+            console.log(error)
+        })
+    }
+
+    logout = () => {
+        api.logout()
+        .then((response) => {
+            this.setState({loggedin: false})
+        })
+        .catch((error) => {
+            console.log(error)
+        })
+    }
+
+    render(){
+
+        if(this.state.loading){
+            return <Loader/>
+        }
+
+        if(this.state.loggedin === false){
+            return <Redirect to="/"/>
+        }
+
+        return (
         
         <div className="body">
+            <button onClick={this.logout}>Logout</button>
             <div className="container">
                 <div className="row mx-auto">
                     <div className="col-lg-5 col-md-8 col-sm-10 mx-auto">

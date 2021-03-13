@@ -51,6 +51,11 @@
 .notfound{
     text-align: center;
 }
+
+.wait{
+    text-align: center;
+}
+
 .wait-img{
     width: 50%;
     display: block;

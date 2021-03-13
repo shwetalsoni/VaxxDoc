@@ -8,12 +8,14 @@ let api = {
     axios({
         'method':'GET',
         'url': apiUrl + '/user',
+        withCredentials: true
     }),
 
     getUser: (email) =>
     axios({
         'method':'GET',
         'url': apiUrl + '/user/' + email,
+        withCredentials: true
     }),
 
     markV1: (email, hospital) => {
@@ -24,7 +26,8 @@ let api = {
             method: 'POST',
             url: apiUrl + '/markV1',
             data: bodyFormData,
-            headers: {'Content-Type': 'multipart/form-data' }
+            headers: {'Content-Type': 'multipart/form-data' },
+            withCredentials: true
         })
     },
 
@@ -35,7 +38,8 @@ let api = {
             method: 'POST',
             url: apiUrl + '/markV2',
             data: bodyFormData,
-            headers: {'Content-Type': 'multipart/form-data' }
+            headers: {'Content-Type': 'multipart/form-data' },
+            withCredentials: true
         })
     },
 
@@ -51,7 +55,8 @@ let api = {
             method: 'POST',
             url: apiUrl + '/user',
             data: bodyFormData,
-            headers: {'Content-Type': 'multipart/form-data' }
+            headers: {'Content-Type': 'multipart/form-data' },
+            withCredentials: true
         })
     },
 
@@ -63,7 +68,8 @@ let api = {
             method: 'POST',
             url: apiUrl + '/login',
             data: bodyFormData,
-            headers: {'Content-Type': 'multipart/form-data' }
+            headers: {'Content-Type': 'multipart/form-data' },
+            withCredentials: true
         })
     },
 
@@ -75,7 +81,8 @@ let api = {
             method: 'POST',
             url: apiUrl + '/staffLogin',
             data: bodyFormData,
-            headers: {'Content-Type': 'multipart/form-data' }
+            headers: {'Content-Type': 'multipart/form-data' },
+            withCredentials: true
         })
     },
 
@@ -83,12 +90,21 @@ let api = {
     axios({
         'method':'GET',
         'url': apiUrl + '/checkLogin',
+        withCredentials: true
+    }),
+
+    checkStaffLogin: () =>
+    axios({
+        'method':'GET',
+        'url': apiUrl + '/checkStaffLogin',
+        withCredentials: true
     }),
 
     logout: () =>
     axios({
         'method':'GET',
         'url': apiUrl + '/logout',
+        withCredentials: true
     }),
 }
 

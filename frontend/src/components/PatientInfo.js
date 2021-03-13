@@ -26,8 +26,9 @@ function PatientInfo() {
         })
         .catch((error) => {
             console.log(error)
-            setLoaded(true)
+            setLoggedIn(true)
             setNotFound(true)
+            setLoaded(true)
         })
     }, [email])
 
@@ -88,8 +89,6 @@ function PatientInfo() {
             </div>
         )
     }
-
-    console.log(email)
 
     if(!loaded) {
         return (
