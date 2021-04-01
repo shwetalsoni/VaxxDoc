@@ -13,4 +13,4 @@ JavaScript |  |
 
 > Checkout this medium article to know how we built it: https://anshit01.medium.com/vaxxdoc-vaccine-record-dapp-with-tezos-blockchain-dcd8271019a1
 -------------
-Made with :heart:  by [Anshit](https://github.com/Anshit01) and [Shwetal](https://github.com/shwetalsoni)
+Made with :heart:  by [Shwetal](https://github.com/shwetalsoni) and [Anshit](https://github.com/Anshit01)
