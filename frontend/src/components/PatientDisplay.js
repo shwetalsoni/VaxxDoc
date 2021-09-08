@@ -10,7 +10,7 @@ class PatientDisplay extends React.Component{
     state = {
         data: {},
         loading: true,
-        loggedin: false
+        loggedin: true
     }
 
     componentDidMount() {

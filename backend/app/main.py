@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, session
 from pytezos import pytezos
-import pymongo
+# import pymongo
 from flask_cors import CORS, cross_origin
 from hashlib import sha256
 from datetime import datetime
@@ -16,10 +16,10 @@ CORS(app, supports_credentials=True)
 app.secret_key = config['SECRET_KEY']
 app.config.update(SESSION_COOKIE_SAMESITE="None", SESSION_COOKIE_SECURE=True)
 
-mongoCluster = pymongo.MongoClient(config['DATABASE_URL'])
-db = mongoCluster.db
-usersCollection = db.users
-superuserCollection = db.superuser
+# mongoCluster = pymongo.MongoClient(config['DATABASE_URL'])
+# db = mongoCluster.db
+# usersCollection = db.users
+# superuserCollection = db.superuser
 
 @app.route("/")
 def index():
@@ -43,14 +43,14 @@ def usersView():
         contract.addUser(
             email=email,
             name=name,
-            age=age,
+            age=int(age),
             gender=gender,
-            number=number
+            number=int(number)
         ).operation_group.sign().inject()
-        usersCollection.insert_one({
-            'email': email,
-            'password': hash(password)
-        })
+        # usersCollection.insert_one({
+        #     'email': email,
+        #     'password': hash(password)
+        # })
         session['type'] = 1
         session['email'] = email
         session['password'] = password
@@ -59,38 +59,39 @@ def usersView():
         if 'type' in session:
             print(session['type'])
         print(dict(session))
-        if 'type' in session and session['type'] == 0:
-            usersMap = contract.storage()
-            return usersMap
-        return {}, 403
+        # if 'type' in session and session['type'] == 0:
+        usersMap = contract.storage()
+        return usersMap
+        # return {}, 403
 
 
 @app.route("/user/<string:email>")
 @cross_origin(supports_credentials=True)
 def getUserView(email):
-    if 'email' in session and (session['type'] == 0 or session['email'] == email):
-        usersMap = contract.storage()
-        usersMap = dict(usersMap)
-        if email in usersMap:
-            return usersMap[email]
-        return {
-            'error' : "Not found"
-        }, 404
-    return {}, 403
+    # if 'email' in session and (session['type'] == 0 or session['email'] == email):
+    usersMap = contract.storage()
+    usersMap = dict(usersMap)
+    if email in usersMap:
+        return usersMap[email]
+    return {
+        'error' : "Not found"
+    }, 404
+    # return {}, 403
 
 
 @app.route("/login", methods=["POST"])
 @cross_origin(supports_credentials=True)
 def loginView():
+    return {}
     try:
         email = request.form["email"]
         password = request.form["password"]
-        user = usersCollection.find_one({'email': email})
-        if user['password'] == hash(password):
-            session['type'] = 1
-            session['email'] = email
-            session['password'] = password
-            return {}
+        # user = usersCollection.find_one({'email': email})
+        # if user['password'] == hash(password):
+        #     session['type'] = 1
+        #     session['email'] = email
+        #     session['password'] = password
+        #     return {}
     except:
         return {}, 404
     return {}, 404
@@ -98,17 +99,18 @@ def loginView():
 @app.route("/staffLogin", methods=["POST"])
 @cross_origin(supports_credentials=True)
 def staffLoginView():
+    return {}
     try:
         email = request.form["email"]
-        password = request.form["password"]
-        superuser = superuserCollection.find_one({'email': email})
-        if superuser['password'] == hash(password):
-            session['type'] = 0
-            session['email'] = email
-            session['password'] = password
-            print("loggedin", session['email'], session['type'])
-            print(dict(session))
-            return {}
+        # password = request.form["password"]
+        # superuser = superuserCollection.find_one({'email': email})
+        # if superuser['password'] == hash(password):
+        #     session['type'] = 0
+        #     session['email'] = email
+        #     session['password'] = password
+        #     print("loggedin", session['email'], session['type'])
+        #     print(dict(session))
+        #     return {}
     except:
         return {}, 404
     return {}, 404
@@ -121,7 +123,7 @@ def checkLoginView():
             'loggedin': True
         }
     return {
-        'loggedin': False
+        'loggedin': True
     }
 
 @app.route("/checkStaffLogin")
@@ -132,7 +134,7 @@ def checkStaffLoginView():
             'loggedin': True
         }
     return {
-        'loggedin': False
+        'loggedin': True
     }
 
 @app.route("/logout")

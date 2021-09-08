@@ -8,7 +8,7 @@ class DoctorLogin extends React.Component{
 
     state = {
         loggedin: false,
-        loading: true,
+        loading: false,
         email: 'test@example.com',
         password: '123'
     }
@@ -22,7 +22,7 @@ class DoctorLogin extends React.Component{
     }
 
     handleLogin = () => {
-        // this.setState({loggedin: true})
+        this.setState({loggedin: true})
         api.staffLogin(
             this.state.email,
             this.state.password
@@ -51,9 +51,9 @@ class DoctorLogin extends React.Component{
         })
     }
 
-    componentDidMount(){
-        this.isLoggedin()
-    }
+    // componentDidMount(){
+    //     this.isLoggedin()
+    // }
 
   render(){
 
