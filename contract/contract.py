@@ -1,5 +1,3 @@
-# Store Value - Example for illustrative purposes only.
-
 import smartpy as sp
 
 class VaccinationData(sp.Contract):
@@ -55,6 +53,6 @@ if "templates" not in __name__:
             number=1234567890
         )
         html += c1.markV1(email='em', date=2, hospital="Fortizzz")
-        html += c1.markV2(email='a', date=3)
+        html += c1.markV2(email='a', date=3).run(valid = False)
         html += c1.markV2(email='em', date=10)
         
